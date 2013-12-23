@@ -36,3 +36,7 @@ body {
 .details-item-home .badge {
 	background-color: #428bca;
 }
+
+.navbar-penedorj {
+	background-color: rgba(0,0,0,.8);
+}
