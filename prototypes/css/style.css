@@ -11,18 +11,20 @@ body {
 }
 
 .img-item-home {
-	position: absolute;
+	width: 400px;
+	height: 300px;
 }
 
 .title-item-home {
 	position: absolute;
+	top: 0;
 	background-color: rgba(0,0,0,.5);
 	width: 100%;
 	color: #FFF;
 }
 
 .title-item-home h4 {
-	margin-left: 10px
+	margin-left: 10px;
 }
 
 .details-item-home {
