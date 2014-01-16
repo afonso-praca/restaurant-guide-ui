@@ -14,3 +14,17 @@ results
 
 npm-debug.log
 node_modules
+
+
+*.suo
+*.user
+*.swp
+
+# Build folders
+build
+.idea
+coverage
+npm-debug.log
+Gruntfile.js
+Gruntfile.map
+bower_components
