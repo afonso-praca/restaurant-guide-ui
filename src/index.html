@@ -1,0 +1,37 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Restaurant Guide UI</title>
+
+		<!-- CSS -->
+		<link href="styles/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="styles/style.css"/>
+
+	</head>
+	<body>
+		<div id="app-container">
+			<div data-ng-include="'views/header.html'"></div>
+			<div data-ng-view id="app-content"></div>
+		</div>
+
+		<!--LIBS-->
+		<script type="text/javascript" src="lib/jquery-2.0.3.min.js"></script>
+		<script type="text/javascript" src="lib/underscore-min.js"></script>
+		<script type="text/javascript" src="lib/angular/angular.min.js"></script>
+		<script type="text/javascript" src="lib/angular/angular-animate.min.js"></script>
+		<script type="text/javascript" src="lib/angular/angular-route.min.js"></script>
+		<script type="text/javascript" src="lib/angular/angular-translate.min.js"></script>
+		<script type="text/javascript" src="lib/angular/angular-translate-loader-static-files.min.js"></script>
+		<script type="text/javascript" src="lib/moment.min.js"></script>
+		<!--/LIBS-->
+
+		<script type="text/javascript" src="scripts/controllers/main-controller.js"></script>
+		<script type="text/javascript" src="scripts/controllers/restaurant-list-controller.js"></script>
+		<script type="text/javascript" src="scripts/factorys/main-factory.js"></script>
+		<script type="text/javascript" src="scripts/services/main-service.js"></script>
+		<script type="text/javascript" src="scripts/filters/filters.js"></script>
+		<script type="text/javascript" src="scripts/app.js"></script>
+
+	</body>
+</html>

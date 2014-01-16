@@ -14,7 +14,7 @@ module.exports = (grunt) ->
         files: [
           expand: true
           cwd: 'src/'
-          src: ['**', '!coffee/**', '!style/**', '!views/**']
+          src: ['**', '!coffee/**', '!style/**']
           dest: 'build/<%= relativePath %>/'
         ,
           # Serve index.html where janus expects it

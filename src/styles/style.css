@@ -1,0 +1,42 @@
+body {
+	padding-top: 50px;
+}
+
+.starter-template {
+	padding: 40px 15px;
+}
+
+.home-item {
+	position: relative;
+}
+
+.img-item-home {
+	width: 400px;
+	height: 300px;
+}
+
+.title-item-home {
+	position: absolute;
+	top: 0;
+	background-color: rgba(0,0,0,.5);
+	width: 100%;
+	color: #FFF;
+}
+
+.title-item-home h4 {
+	margin-left: 10px;
+}
+
+.details-item-home {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+}
+
+.details-item-home .badge {
+	background-color: #428bca;
+}
+
+.navbar-penedorj {
+	background-color: rgba(0,0,0,.8);
+}
