@@ -1,42 +1,37 @@
 body {
-	padding-top: 50px;
+  padding-top: 10px;
 }
-
 .starter-template {
-	padding: 40px 15px;
+  padding: 40px 15px;
 }
-
 .home-item {
-	position: relative;
+  position: relative;
 }
-
 .img-item-home {
-	width: 400px;
-	height: 300px;
+  width: 400px;
+  height: 300px;
 }
-
 .title-item-home {
-	position: absolute;
-	top: 0;
-	background-color: rgba(0,0,0,.5);
-	width: 100%;
-	color: #FFF;
+  position: absolute;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  color: #FFF;
 }
-
 .title-item-home h4 {
-	margin-left: 10px;
+  margin-left: 10px;
 }
-
 .details-item-home {
-	position: absolute;
-	right: 10px;
-	bottom: 10px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
 }
-
 .details-item-home .badge {
-	background-color: #428bca;
+  background-color: #428bca;
 }
-
 .navbar-penedorj {
-	background-color: rgba(0,0,0,.8);
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.top-buffer {
+  margin-top: 20px;
 }

@@ -94,7 +94,7 @@ module.exports = (grunt) ->
         tasks: ['less']
       ngtemplates:
         files: ['src/views/**/*.html']
-        tasks: ['ngtemplates']
+        tasks: ['ngtemplates', 'copy']
       main:
         files: ['src/i18n/**/*.json', 'src/index.html']
         tasks: ['copy']
