@@ -11,6 +11,7 @@
 	</head>
 	<body>
 		<div id="app-container">
+			<div class="la-anim-10" data-ng-controller="LoaderController" data-ng-class="{'la-animate': SharedData.isLoading}"></div>
 			<div data-ng-include="'views/header.html'"></div>
 			<div data-ng-view id="app-content"></div>
 		</div>
@@ -30,6 +31,7 @@
 		<!-- CONTROLLERS -->
 		<script type="text/javascript" src="scripts/controllers/main-controller.js"></script>
 		<script type="text/javascript" src="scripts/controllers/restaurant-list-controller.js"></script>
+		<script type="text/javascript" src="scripts/controllers/loader-controller.js"></script>
 		<script type="text/javascript" src="scripts/controllers/header-controller.js"></script>
 
 		<!-- SERVICES -->
@@ -38,6 +40,7 @@
 		<script type="text/javascript" src="scripts/services/services.js"></script>
 		<script type="text/javascript" src="scripts/services/restaurant-filter-service.js"></script>
 		<script type="text/javascript" src="scripts/services/restaurant-pagination-service.js"></script>
+		<script type="text/javascript" src="scripts/services/shared.js"></script>
 
 		<!-- APP -->
 		<script type="text/javascript" src="scripts/filters/filters.js"></script>

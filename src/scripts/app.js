@@ -24,6 +24,9 @@ angular.module("app", ["ngRoute", "controllers", "services", "filters"])
 			$routeProvider.otherwise({
 				redirectTo: '/restaurantes'
 			});
+		})
+		.run(function($rootScope, SharedData){
+			SharedData.isLoading = true;
 		});
 
 // BOOTSTRAPS ANGULAR APP
