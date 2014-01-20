@@ -88,7 +88,7 @@ module.exports = (grunt) ->
         spawn: false
       js:
         files: ['src/scripts/**/*.js']
-        tasks: ['coffee']
+        tasks: ['coffee', 'copy']
       less:
         files: ['src/style/**/*.less']
         tasks: ['less']

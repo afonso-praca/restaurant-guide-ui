@@ -1,6 +1,6 @@
 <div class="container starter-template">
-	<div class="row top-buffer" data-ng-repeat="row in listToDisplay | partition:3">
-		<div class="col-xs-12 col-sm-6 col-md-4" data-ng-repeat="restaurant in row">
+	<div class="row top-buffer" data-ng-repeat="row in listToDisplay  | filter: RestaurantFilterService.textToSearch | partition:3">
+		<div class="col-xs-12 col-sm-6 col-md-4" data-ng-repeat="restaurant in row track by $index">
 			<div class="home-item clearfix">
 				<img src="http://lorempixel.com/400/300/food/1" alt="img" class="img-responsive img-item-home"/>
 				<div class="title-item-home">
