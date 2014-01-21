@@ -21,12 +21,27 @@ angular.module("app", ["ngRoute", "controllers", "services", "filters"])
 	      }
 			});
 
+			$routeProvider.when('/restaurantes/:id', {
+				controller: "RestaurantDetailController",
+				templateUrl: 'views/restaurant-detail-view.html',
+				resolve: {
+					restaurant: function($route, restaurantGuideService){
+						return restaurantGuideService.getRestaurantDetails($route.current.params.id);
+					}
+				}
+			});
+
 			$routeProvider.otherwise({
 				redirectTo: '/restaurantes'
 			});
 		})
 		.run(function($rootScope, SharedData){
-			SharedData.isLoading = true;
+			$rootScope.$on('$routeChangeSuccess', function(){
+				SharedData.isLoading = false;
+			});
+			$rootScope.$on('$routeChangeStart', function(){
+				SharedData.isLoading = true;
+			});
 		});
 
 // BOOTSTRAPS ANGULAR APP
