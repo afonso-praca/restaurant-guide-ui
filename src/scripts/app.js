@@ -35,12 +35,14 @@ angular.module("app", ["ngRoute", "controllers", "services", "filters"])
 				redirectTo: '/restaurantes'
 			});
 		})
-		.run(function($rootScope, SharedData){
-			$rootScope.$on('$routeChangeSuccess', function(){
-				SharedData.isLoading = false;
-			});
+		.run(function($rootScope, SharedData, $timeout){
 			$rootScope.$on('$routeChangeStart', function(){
 				SharedData.isLoading = true;
+			});
+			$rootScope.$on('$routeChangeSuccess', function(){
+				$timeout(function(){
+					SharedData.isLoading = false;
+				}, 1500);
 			});
 		});
 

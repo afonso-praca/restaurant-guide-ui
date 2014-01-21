@@ -1,5 +1,5 @@
 angular.module("controllers")
-	.controller("RestaurantDetailController", function($scope, restaurant, SharedData, $timeout){
+	.controller("RestaurantDetailController", function($scope, restaurant, SharedData){
 
 		var self = this;
 		$scope.SharedData = SharedData;
@@ -8,10 +8,7 @@ angular.module("controllers")
 		$scope.restaurant = restaurant;
 
 		self.startModule = function(){
-			console.log($scope.restaurant);
-			$timeout(function(){
-				$scope.SharedData.isLoading = false;
-			}, 1800);
+
 		};
 
 		self.startModule();
