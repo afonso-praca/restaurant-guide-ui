@@ -2,7 +2,7 @@ angular.module("services")
 	.service('restaurantGuideService', function($http) {
 
 		var self = this;
-		self.endpoint = "http://penedorj.com:3000";
+		self.endpoint = "http://penedorj.com.br:3000";
 
 		self.genericDataError = function(data, status, headers){
 			var errorMessage = decodeURIComponent(headers()["x-error-message"]);
