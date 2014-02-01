@@ -6,7 +6,6 @@ angular.module("controllers")
 
 		self.startModule = function(){
 			$scope.restaurant = restaurant.data;
-			console.log($scope.restaurant);
 		};
 
 		self.startModule();
