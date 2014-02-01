@@ -1,27 +1,41 @@
-<div class="container starter-template">
-	<!-- EMPTY LIST MESSAGE -->
-	<div class="row top-buffer">
+<!-- EMPTY LIST MESSAGE -->
+<div class="row top-buffer">
 
-		<div class="col-md-4">
-			<img class="img-responsive" src="" data-ng-src="{{ restaurant.image }}">
+	<div class="col-xs-12 col-sm-6 col-md-4">
+		<div class="home-item clearfix">
+			<img class="img-responsive" src="" data-ng-src="{{ restaurant.image }}" imageonload>
 		</div>
-		<div class="col-md-8">
-			<div class="card">
-				<div class="card-heading clearfix">
-					<!--<div class="stamp">
-						<span class="badge pull-left label-name badge-success ng-scope ng-binding" data-ng-if="benefit.status === 'active'">Ativa</span>
-					</div>-->
-					<h2 class="lead pull-left">{{ restaurant.name }}</h2>
-				</div>
-				<div class="clearfix">
-					<span class="label label-primary label-restaurant-detail pull-left">{{ restaurant.expertise }}</span>
-				</div>
+	</div>
+	<div class="col-md-8">
+
+		<div class="card">
+
+			<div class="card-heading clearfix">
+				<!--<div class="stamp">
+					<span class="badge pull-left label-name badge-success ng-scope ng-binding" data-ng-if="benefit.status === 'active'">Ativa</span>
+				</div>-->
+				<h2 class="lead pull-left">{{ restaurant.name }}</h2>
 			</div>
-		</div>
 
-		<div class="col-md-6">
+			<div class="clearfix">
+				<span class="label label-primary label-restaurant-detail pull-left">{{ restaurant.expertise }}</span>
+			</div>
+
+			<!-- DESCRIPTION -->
+			<p class="restaurant-description">
+				<span class="glyphicon glyphicon-home"></span><span> {{ restaurant.address }} - {{ restaurant.neighborhood }}</span>
+			</p>
+
+			<!-- UTM -->
+			<p class="restaurant-phone">
+				<span class="glyphicon glyphicon-phone-alt"></span><span> (24) {{ restaurant.phone }}</span>
+			</p>
 
 		</div>
+	</div>
+
+	<div class="col-md-6">
 
 	</div>
-</div><!-- /.container -->
+
+</div>

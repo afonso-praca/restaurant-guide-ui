@@ -42,7 +42,7 @@ angular.module("app", ["ngRoute", "controllers", "services", "filters", "directi
 			$rootScope.$on('$routeChangeSuccess', function(){
 				$timeout(function(){
 					SharedData.isLoading = false;
-				}, 1500);
+				}, 500);
 			});
 		});
 

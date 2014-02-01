@@ -8,6 +8,10 @@ body {
 .home-item {
   position: relative;
   display: none;
+  border: 2px solid #ECECEC;
+  border-radius: 3px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
 }
 .title-item-home {
   position: absolute;
@@ -32,6 +36,9 @@ body {
 }
 .top-buffer {
   margin-top: 20px;
+}
+.footer-text {
+  color: #BBB;
 }
 /* Effect 10: Corner indicator */
 .la-anim-10 {
@@ -106,7 +113,7 @@ body {
   }
 }
 .label.label-restaurant-detail {
-  margin: 0 0 20px;
+  margin: -5px 0 20px;
 }
 .card {
   background-color: #fff;
