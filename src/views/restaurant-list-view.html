@@ -1,6 +1,6 @@
 <vt-pagination item-count="paging.totalCount" page-count="paging.totalPages" current-page="paging.currentPage" per-page="paging.perPage"></vt-pagination>
-<div class="row top-buffer" data-ng-repeat="row in listToDisplay  | filter: RestaurantFilterService.textToSearch | partition:3">
-	<div class="col-xs-12 col-sm-6 col-md-4" data-ng-repeat="restaurant in row track by $index">
+<div class="row top-buffer" data-ng-repeat="row in listToDisplay  | filter: RestaurantFilterService.textToSearch | partition: getNuberOfCollums()">
+	<div class="col-xs-6 col-sm-4" data-ng-repeat="restaurant in row track by $index">
 		<a href="#/restaurantes/{{restaurant._id}}">
 			<div class="home-item clearfix">
 				<img src="" data-ng-src="{{restaurant.image}}" alt="img" class="img-responsive img-item-home" imageonload/>
@@ -9,12 +9,6 @@
 				</div>
 				<div class="details-item-home">
 					<span class="label label-default" data-ng-bind="restaurant.expertise">Especialidade</span>
-					<!--<span class="badge">
-						<span class="glyphicon glyphicon-usd"></span><span class="glyphicon glyphicon-usd"></span>
-					</span>
-					<span class="badge">
-						<span class="glyphicon glyphicon-star"></span> 7
-					</span>-->
 				</div>
 			</div>
 		</a>
