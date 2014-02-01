@@ -11,7 +11,7 @@
 	</head>
 	<body>
 		<div id="app-container">
-			<div class="la-anim-10" data-ng-controller="LoaderController" data-ng-class="{'la-animate': SharedData.isLoading}"></div>
+			<div class="la-anim-10 ng-cloak" data-ng-controller="LoaderController" data-ng-class="{'la-animate': SharedData.isLoading}"></div>
 			<div data-ng-include="'views/header.html'"></div>
 			<div data-ng-view id="app-content" class="ng-cloak"></div>
 		</div>
@@ -42,6 +42,9 @@
 		<script type="text/javascript" src="scripts/services/restaurant-filter-service.js"></script>
 		<script type="text/javascript" src="scripts/services/restaurant-pagination-service.js"></script>
 		<script type="text/javascript" src="scripts/services/shared.js"></script>
+
+		<!-- DIRECTIVES -->
+		<script type="text/javascript" src="scripts/directives/directives.js"></script>
 
 		<!-- APP -->
 		<script type="text/javascript" src="scripts/filters/filters.js"></script>

@@ -6,6 +6,7 @@ body {
 }
 .home-item {
   position: relative;
+  display: none;
 }
 .title-item-home {
   position: absolute;

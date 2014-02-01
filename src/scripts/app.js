@@ -2,7 +2,7 @@
 // RESTAURANT GUIDE UI - APP MAIN
 //
 
-angular.module("app", ["ngRoute", "controllers", "services", "filters"])
+angular.module("app", ["ngRoute", "controllers", "services", "filters", "directives"])
 
 	.config(function($routeProvider, $sceProvider, $httpProvider) {
 
