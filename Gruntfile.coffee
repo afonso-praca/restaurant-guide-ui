@@ -36,9 +36,9 @@ module.exports = (grunt) ->
       main:
         files: [
           expand: true
-          cwd: 'src/style'
-          src: ['main.less', 'print.less']
-          dest: 'build/<%= relativePath %>/style/'
+          cwd: 'src/styles'
+          src: ['style.less']
+          dest: 'build/<%= relativePath %>/styles/'
           ext: '.css'
         ]
 
@@ -90,7 +90,7 @@ module.exports = (grunt) ->
         files: ['src/scripts/**/*.js']
         tasks: ['coffee', 'copy']
       less:
-        files: ['src/style/**/*.less']
+        files: ['src/styles/**/*.less']
         tasks: ['less']
       ngtemplates:
         files: ['src/views/**/*.html']
