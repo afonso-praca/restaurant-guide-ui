@@ -4,11 +4,9 @@ angular.module("controllers")
 		var self = this;
 		$scope.SharedData = SharedData;
 
-		// LIST ORDER AND SEARCH STUFF
-		$scope.restaurant = restaurant;
-
 		self.startModule = function(){
-
+			$scope.restaurant = restaurant.data;
+			console.log($scope.restaurant);
 		};
 
 		self.startModule();

@@ -1,8 +1,27 @@
 <div class="container starter-template">
 	<!-- EMPTY LIST MESSAGE -->
 	<div class="row top-buffer">
+
 		<div class="col-md-4">
-			<h2>Restaurante</h2>
+			<img class="img-responsive" src="" data-ng-src="{{ restaurant.image }}">
 		</div>
+		<div class="col-md-8">
+			<div class="card">
+				<div class="card-heading clearfix">
+					<!--<div class="stamp">
+						<span class="badge pull-left label-name badge-success ng-scope ng-binding" data-ng-if="benefit.status === 'active'">Ativa</span>
+					</div>-->
+					<h2 class="lead pull-left">{{ restaurant.name }}</h2>
+				</div>
+				<div class="clearfix">
+					<span class="label label-primary label-restaurant-detail pull-left">{{ restaurant.expertise }}</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-6">
+
+		</div>
+
 	</div>
 </div><!-- /.container -->
