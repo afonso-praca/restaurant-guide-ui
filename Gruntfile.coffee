@@ -107,7 +107,7 @@ module.exports = (grunt) ->
   grunt.registerTask 'default', ['clean', 'copy', 'coffee', 'less', 'ngtemplates', 'server', 'watch']
   grunt.registerTask 'tdd', ['clean', 'copy', 'coffee', 'less', 'ngtemplates', 'karma:unit', 'server', 'watch']
   grunt.registerTask 'min', ['useminPrepare', 'concat', 'uglify', 'usemin'] # minifies files
-  grunt.registerTask 'dist', ['clean', 'copy', 'coffee', 'less', 'ngtemplates', 'min'] # Dist - minifies files
+  grunt.registerTask 'dist', ['clean', 'copy', 'coffee', 'less', 'ngtemplates'] # Dist - minifies files
   grunt.registerTask 'devmin', ['dist', 'configureProxies:server', 'connect:server:keepalive'] # Minifies files and serve
   grunt.registerTask 'test', ['karma:single']
   grunt.registerTask 'server', ['configureProxies:server', 'connect']
