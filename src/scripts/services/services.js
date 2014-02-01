@@ -14,7 +14,7 @@ angular.module("services")
 				return $http({
 					method: 'GET',
 					url: self.endpoint + "/api/pvt/restaurants/",
-					cache: false
+					cache: true
 				})
 					.success(function(response) {
 						return response;
@@ -28,7 +28,7 @@ angular.module("services")
 				return $http({
 					method: 'GET',
 					url: self.endpoint + "/api/pvt/restaurants/" + _id + "/",
-					cache: false
+					cache: true
 				})
 					.success(function(response) {
 						return response;
