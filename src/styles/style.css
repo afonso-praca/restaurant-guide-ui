@@ -25,6 +25,7 @@ body {
 }
 .title-item-home h4 {
   margin-left: 10px;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 .details-item-home {
   position: absolute;
