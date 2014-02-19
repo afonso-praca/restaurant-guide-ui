@@ -4,7 +4,13 @@
 
 angular.module("app", ["ngRoute", "controllers", "services", "filters", "directives"])
 
-	.config(function($routeProvider, $sceProvider, $httpProvider) {
+//	.config(['$location', function($location) {
+//		$location.hashPrefix('!');
+//	}])
+
+	.config(function($routeProvider, $sceProvider, $httpProvider, $locationProvider) {
+
+		$locationProvider.hashPrefix('!');
 
 		$httpProvider.defaults.useXDomain = true;
 		delete $httpProvider.defaults.headers.common['X-Requested-With'];
