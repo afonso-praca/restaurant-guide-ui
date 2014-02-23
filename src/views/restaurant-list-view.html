@@ -1,4 +1,13 @@
 <vt-pagination item-count="paging.totalCount" page-count="paging.totalPages" current-page="paging.currentPage" per-page="paging.perPage"></vt-pagination>
+<!-- SEARCH -->
+<div class="row">
+	<div class="col-xs-12 restaurant-search-container">
+		<form class="fade-in">
+			<input type="text" class="form-control input-lg" placeholder="Buscar" data-ng-model="RestaurantFilterService.textToSearch" autofocus/>
+		</form>
+	</div>
+</div>
+<!-- LIST -->
 <div class="row">
 	<div class="col-xs-6 col-sm-4 top-buffer" data-ng-repeat="restaurant in listToDisplay | filter: RestaurantFilterService.textToSearch track by $index">
 		<a href="#!/restaurantes/{{restaurant._id}}">
@@ -8,6 +17,7 @@
 					<h4 data-ng-bind="restaurant.name">Nome do Restaurante</h4>
 				</div>
 				<div class="details-item-home">
+					<a disqus-identifier="{{restaurant._id}}"></a>
 					<span class="label label-primary" data-ng-bind="restaurant.expertise">Especialidade</span>
 				</div>
 			</div>
