@@ -1,113 +1,123 @@
 module.exports = (grunt) ->
-  pkg = grunt.file.readJSON('package.json')
+	pkg = grunt.file.readJSON('package.json')
 
-  # Project configuration.
-  grunt.initConfig
-    relativePath: pkg.paths[0].slice(1) # Removes first slash
+	# Project configuration.
+	grunt.initConfig
+		relativePath: pkg.paths[0].slice(1) # Removes first slash
 
-  # Tasks
-    clean:
-      main: ['build', 'tmp-deploy']
+	# Tasks
+		clean:
+			main: ['build', 'tmp-deploy']
 
-    copy:
-      main:
-        files: [
-          expand: true
-          cwd: 'src/'
-          src: ['**', '!coffee/**', '!style/**']
-          dest: 'build/<%= relativePath %>/'
-        ,
-          # Serve index.html where janus expects it
-          src: ['src/index.html']
-          dest: 'build/<%= relativePath %>/<%= relativePath %>/index.html'
-        ]
+		htmlSnapshot:
+			prod:
+				options:
+					snapshotPath: 'build/snapshots/'
+					sitePath: 'http://localhost/'
+					msWaitForPages: 1000,
+					fileNamePrefix: 'sp',
+					bodyAttr: 'data-prerendered',
+					urls: ['#!/restaurantes/52ec25085ee1f3ba0db0e867', '#!/restaurantes']
 
-    coffee:
-      main:
-        files: [
-          expand: true
-          cwd: 'src/coffee'
-          src: ['**/*.coffee']
-          dest: 'build/<%= relativePath %>/js/'
-          ext: '.js'
-        ]
+		copy:
+			main:
+				files: [
+					expand: true
+					cwd: 'src/'
+					src: ['**', '!coffee/**', '!style/**']
+					dest: 'build/<%= relativePath %>/'
+				,
+					# Serve index.html where janus expects it
+					src: ['src/index.html']
+					dest: 'build/<%= relativePath %>/<%= relativePath %>/index.html'
+				]
 
-    less:
-      main:
-        files: [
-          expand: true
-          cwd: 'src/styles'
-          src: ['style.less']
-          dest: 'build/<%= relativePath %>/styles/'
-          ext: '.css'
-        ]
+		coffee:
+			main:
+				files: [
+					expand: true
+					cwd: 'src/coffee'
+					src: ['**/*.coffee']
+					dest: 'build/<%= relativePath %>/js/'
+					ext: '.js'
+				]
 
-    uglify:
-      options:
-        mangle: false
+		less:
+			main:
+				files: [
+					expand: true
+					cwd: 'src/styles'
+					src: ['style.less']
+					dest: 'build/<%= relativePath %>/styles/'
+					ext: '.css'
+				]
 
-    ngtemplates:
-      main:
-        cwd: 'src/'
-        src: 'views/**/*.html',
-        dest: 'build/<%= relativePath %>/js/templates.js'
-        options:
-          module: 'app'
-          htmlmin:  collapseWhitespace: true, collapseBooleanAttributes: true
+		uglify:
+			options:
+				mangle: false
 
-    useminPrepare:
-      html: 'build/<%= relativePath %>/index.html'
-      options:
-        dest: 'build/'
-        root: 'build/'
+		ngtemplates:
+			main:
+				cwd: 'src/'
+				src: 'views/**/*.html',
+				dest: 'build/<%= relativePath %>/js/templates.js'
+				options:
+					module: 'app'
+					htmlmin:  collapseWhitespace: true, collapseBooleanAttributes: true
 
-    usemin:
-      html: ['build/<%= relativePath %>/index.html', 'build/<%= relativePath %>/<%= relativePath %>/index.html']
+		useminPrepare:
+			html: 'build/<%= relativePath %>/index.html'
+			options:
+				dest: 'build/'
+				root: 'build/'
 
-    karma:
-      options:
-        configFile: 'karma.conf.coffee'
-      unit:
-        background: true
-      single:
-        singleRun: true
+		usemin:
+			html: ['build/<%= relativePath %>/index.html', 'build/<%= relativePath %>/<%= relativePath %>/index.html']
 
-    connect:
-	    server:
-		    options:
-			    livereload: true
-			    hostname: "localhost"
-			    port: 80
-			    middleware: (connect, options) ->
-				    proxy = require("grunt-connect-proxy/lib/utils").proxyRequest
-				    [proxy, connect.static('./build/')]
+		karma:
+			options:
+				configFile: 'karma.conf.coffee'
+			unit:
+				background: true
+			single:
+				singleRun: true
 
-    watch:
-      options:
-        livereload: true
-        spawn: false
-      js:
-        files: ['src/scripts/**/*.js']
-        tasks: ['coffee', 'copy']
-      less:
-        files: ['src/styles/**/*.less']
-        tasks: ['less']
-      ngtemplates:
-        files: ['src/views/**/*.html']
-        tasks: ['ngtemplates', 'copy']
-      main:
-        files: ['src/i18n/**/*.json', 'src/index.html']
-        tasks: ['copy']
-      test:
-        files: ['src/coffee/**/*.coffee', 'spec/**/*.coffee']
-        tasks: ['karma:unit:run']
+		connect:
+			server:
+				options:
+					livereload: true
+					hostname: "localhost"
+					port: 80
+					middleware: (connect, options) ->
+						proxy = require("grunt-connect-proxy/lib/utils").proxyRequest
+						[proxy, connect.static('./build/')]
 
-  grunt.loadNpmTasks name for name of pkg.dependencies when name[0..5] is 'grunt-'
+		watch:
+			options:
+				livereload: true
+				spawn: false
+			js:
+				files: ['src/scripts/**/*.js']
+				tasks: ['coffee', 'copy']
+			less:
+				files: ['src/styles/**/*.less']
+				tasks: ['less']
+			ngtemplates:
+				files: ['src/views/**/*.html']
+				tasks: ['ngtemplates', 'copy']
+			main:
+				files: ['src/i18n/**/*.json', 'src/index.html']
+				tasks: ['copy']
+			test:
+				files: ['src/coffee/**/*.coffee', 'spec/**/*.coffee']
+				tasks: ['karma:unit:run']
 
-  grunt.registerTask 'default', ['clean', 'copy', 'coffee', 'less', 'ngtemplates', 'server', 'watch']
-  grunt.registerTask 'tdd', ['clean', 'copy', 'coffee', 'less', 'ngtemplates', 'karma:unit', 'server', 'watch']
-  grunt.registerTask 'min', ['useminPrepare', 'concat', 'uglify', 'usemin'] # minifies files
-  grunt.registerTask 'dist', ['clean', 'copy', 'coffee', 'less', 'ngtemplates'] # Dist - minifies files
-  grunt.registerTask 'devmin', ['dist', 'configureProxies:server', 'connect:server:keepalive'] # Minifies files and serve
-  grunt.registerTask 'test', ['karma:single']
-  grunt.registerTask 'server', ['configureProxies:server', 'connect']
+	grunt.loadNpmTasks name for name of pkg.dependencies when name[0..5] is 'grunt-'
+
+	grunt.registerTask 'default', ['clean', 'copy', 'coffee', 'less', 'ngtemplates', 'server', 'watch']
+	grunt.registerTask 'tdd', ['clean', 'copy', 'coffee', 'less', 'ngtemplates', 'karma:unit', 'server', 'watch']
+	grunt.registerTask 'min', ['useminPrepare', 'concat', 'uglify', 'usemin'] # minifies files
+	grunt.registerTask 'dist', ['clean', 'copy', 'coffee', 'less', 'ngtemplates', 'htmlSnapshot'] # Dist - minifies files
+	grunt.registerTask 'devmin', ['dist', 'configureProxies:server', 'connect:server:keepalive'] # Minifies files and serve
+	grunt.registerTask 'test', ['karma:single']
+	grunt.registerTask 'server', ['configureProxies:server', 'connect']
