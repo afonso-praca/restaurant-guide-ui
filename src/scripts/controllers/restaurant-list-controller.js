@@ -16,15 +16,9 @@
 			$scope.listToDisplay = restaurantList.data;
 			$scope.paging.totalCount = $scope.list.length;
 
-			var arrayUrls = [];
 			for (var i =0; i < $scope.list.length; i++){
 				$scope.list[i].commentCount = null;
-				arrayUrls.push("http://penedorj.com.br/#!/restaurantes/" + $scope.list[i]._id);
 			}
-			restaurantGuideService.getDisqusCounter(arrayUrls)
-				.then(function(data){
-					console.log(data);
-				})
 		};
 
 		self.startModule();
