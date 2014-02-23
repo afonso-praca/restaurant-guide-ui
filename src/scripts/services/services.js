@@ -41,7 +41,7 @@ angular.module("services")
 			getDisqusCounter: function(urlArray){
 				return $http({
 					method: 'GET',
-					url: "https://disqus.com/api/3.0/threads/list.jsonp",
+					url: "https://disqus.com/api/3.0/threads/list",
 					data: { api_key: "mQXEUI6cVnMEMrTu7zt5S4ISfDgTffQ8KUi54F7Gk2siiAiJm6yLjLVN4feTrxKt", forum : "penedorj", limit: 100 },
 					cache: true
 				})
