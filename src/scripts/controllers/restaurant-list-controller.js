@@ -19,6 +19,11 @@
 			for (var i =0; i < $scope.list.length; i++){
 				$scope.list[i].commentCount = null;
 			}
+
+			restaurantGuideService.getDisqusCounter()
+				.then(function(data){
+					console.log(data)
+				})
 		};
 
 		self.startModule();
