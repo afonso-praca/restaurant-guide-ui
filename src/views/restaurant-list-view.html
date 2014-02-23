@@ -9,7 +9,7 @@
 </div>
 <!-- LIST -->
 <div class="row">
-	<div class="col-xs-6 col-sm-4 top-buffer" data-ng-repeat="restaurant in listToDisplay | filter: RestaurantFilterService.textToSearch track by $index">
+	<div class="col-xs-6 col-sm-4" data-ng-repeat="restaurant in listToDisplay | filter: RestaurantFilterService.textToSearch track by $index">
 		<a href="#!/restaurantes/{{restaurant._id}}">
 			<div class="home-item clearfix">
 				<img src="" data-ng-src="{{restaurant.image}}" alt="img" class="img-responsive img-item-home" imageonload/>
