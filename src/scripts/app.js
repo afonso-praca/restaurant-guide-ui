@@ -42,7 +42,7 @@ angular.module("app", ["ngRoute", "controllers", "services", "filters", "directi
 				redirectTo: '/restaurantes'
 			});
 		})
-		.run(function($rootScope, SharedData, $timeout){
+		.run(function($rootScope, SharedData, $timeout, $window, sessionService){
 			$rootScope.$on('$routeChangeStart', function(){
 				SharedData.isLoading = true;
 			});
@@ -51,6 +51,29 @@ angular.module("app", ["ngRoute", "controllers", "services", "filters", "directi
 					SharedData.isLoading = false;
 				}, 500);
 			});
+
+			//
+			$rootScope.session = sessionService;
+			$window.app = {
+				authState: function(state, user) {
+					$rootScope.$apply(function() {
+						switch (state) {
+							case 'success':
+								sessionService.authSuccess(user);
+								break;
+							case 'failure':
+								sessionService.authFailed();
+								break;
+						}
+
+					});
+				}
+			};
+
+			if ($window.user !== null) {
+				sessionService.authSuccess($window.user);
+			}
+
 		});
 
 // BOOTSTRAPS ANGULAR APP
