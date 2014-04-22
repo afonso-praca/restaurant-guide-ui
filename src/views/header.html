@@ -5,9 +5,9 @@
 		</div>
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a class="login-fb" ng-click="session.facebookLogin()" target="_blank">LOGIN</a></li>
-				<li ng-if="session.isLoggedIn"><a href="javascript:void(0);">{{ session.currentUser.name }}</a></li>
-				<li ng-if="session.isLoggedIn" ng-click="session.logout()"><a href="javascript:void(0);">LOGOUT</a></li>
+				<li ng-if="!session.isLoggedIn"><a class="login-fb" ng-click="session.facebookLogin()" target="_blank">LOGIN</a></li>
+				<li ng-if="session.isLoggedIn"><a class="login-fb" href="javascript:void(0);">{{ session.currentUser.name | uppercase }}</a></li>
+				<li ng-if="session.isLoggedIn" ng-click="session.logout()"><a class="login-fb" href="javascript:void(0);">LOGOUT</a></li>
 			</ul>
 		</div>
 	</div>
