@@ -60,6 +60,7 @@ angular.module("app", ["ngRoute", "controllers", "services", "filters", "directi
 						switch (state) {
 							case 'success':
 								sessionService.authSuccess(user);
+								console.log(user);
 								break;
 							case 'failure':
 								sessionService.authFailed();
