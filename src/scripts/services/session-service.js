@@ -18,7 +18,7 @@ angular.module('services').factory('sessionService', ['$rootScope', '$window', '
         },
         logout: function() {
             var scope = this;
-            $http.delete('/auth').success(function() {
+            $http.delete('/http://penedorj.com.br/api/auth').success(function() {
                 scope.resetSession();
                 $rootScope.$emit('session-changed');
             });
