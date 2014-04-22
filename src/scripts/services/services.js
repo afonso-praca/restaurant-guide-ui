@@ -2,7 +2,7 @@ angular.module("services")
 	.service('restaurantGuideService', function($http) {
 
 		var self = this;
-		self.endpoint = "http://api.penedorj.com.br";
+		self.endpoint = "http://penedorj.com.br";
 
 		self.genericDataError = function(data, status, headers){
 			var errorMessage = decodeURIComponent(headers()["x-error-message"]);
@@ -13,7 +13,7 @@ angular.module("services")
 			getRestaurantList: function() {
 				return $http({
 					method: 'GET',
-					url: self.endpoint + "/restaurants/",
+					url: self.endpoint + "/api/restaurants/",
 					cache: true
 				})
 					.success(function(response) {
@@ -27,7 +27,7 @@ angular.module("services")
 			getRestaurantDetails: function(_id) {
 				return $http({
 					method: 'GET',
-					url: self.endpoint + "/restaurants/" + _id + "/",
+					url: self.endpoint + "/api/restaurants/" + _id + "/",
 					cache: true
 				})
 					.success(function(response) {
