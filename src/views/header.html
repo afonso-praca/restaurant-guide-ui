@@ -6,6 +6,7 @@
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav navbar-right">
 				<li ng-if="!session.isLoggedIn"><a class="login-fb" ng-click="session.facebookLogin()" target="_blank">LOGIN</a></li>
+				<li ng-if="session.isLoggedIn"><img ng-src="session.currentUser.user_image" class="img-responsive" alt="Responsive image"></li>
 				<li ng-if="session.isLoggedIn"><a class="login-fb" href="javascript:void(0);">{{ session.currentUser.name | uppercase }}</a></li>
 				<li ng-if="session.isLoggedIn" ng-click="session.logout()"><a class="login-fb" href="javascript:void(0);">LOGOUT</a></li>
 			</ul>
