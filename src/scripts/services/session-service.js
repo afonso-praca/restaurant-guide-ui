@@ -9,7 +9,7 @@ angular.module('services').factory('sessionService', ['$rootScope', '$window', '
             this.isLoggedIn = false;
         },
         facebookLogin: function() {
-            var url = 'http://api.penedorj.com.br/auth/facebook',
+            var url = 'http://penedorj.com.br/api/auth/facebook',
                 width = 1000,
                 height = 650,
                 top = (window.outerHeight - height) / 2,
