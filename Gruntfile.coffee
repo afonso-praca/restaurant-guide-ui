@@ -87,7 +87,7 @@ module.exports = (grunt) ->
 				options:
 					livereload: true
 					hostname: "localhost"
-					port: 80
+					port: 8088
 					middleware: (connect, options) ->
 						proxy = require("grunt-connect-proxy/lib/utils").proxyRequest
 						[proxy, connect.static('./build/')]
