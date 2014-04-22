@@ -3,6 +3,9 @@ body {
   background-color: #FAFAFA;
   font-family: 'Source Sans Pro', sans-serif !important;
 }
+.login-fb {
+  cursor: pointer;
+}
 .restaurant-search-container {
   margin-top: 20px;
 }
