@@ -54,6 +54,7 @@ angular.module("app", ["ngRoute", "controllers", "services", "filters", "directi
 
 			//
 			$rootScope.session = sessionService;
+			$rootScope.session.isLoggedIn = false;
 			$window.app = {
 				authState: function(state, user) {
 					$rootScope.$apply(function() {
