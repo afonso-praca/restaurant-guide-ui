@@ -53,10 +53,13 @@ angular.module("app", ["ngRoute", "controllers", "services", "filters", "directi
 			});
 
 			//
+			// PASSPORT STUFF
+			//
 			$rootScope.session = sessionService;
 			$rootScope.session.isLoggedIn = false;
 			$window.app = {
 				authState: function(state, user) {
+					console.log("authState");
 					$rootScope.$apply(function() {
 						switch (state) {
 							case 'success':
@@ -72,7 +75,8 @@ angular.module("app", ["ngRoute", "controllers", "services", "filters", "directi
 				}
 			};
 
-			if ($window.user !== null) {
+			if ($window.user !== null && $window.user !== undefined) {
+				console.log("!window");
 				sessionService.authSuccess($window.user);
 			}
 
