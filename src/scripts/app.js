@@ -2,16 +2,15 @@
 // RESTAURANT GUIDE UI - APP MAIN
 //
 
-angular.module("app", ["ngRoute", "controllers", "services", "filters", "directives", "ngDisqus"])
+angular.module("app", ["ngRoute", "controllers", "services", "filters", "directives"])
 
 //	.config(['$location', function($location) {
 //		$location.hashPrefix('!');
 //	}])
 
-	.config(function($routeProvider, $sceProvider, $httpProvider, $locationProvider, $disqusProvider) {
+	.config(function($routeProvider, $sceProvider, $httpProvider, $locationProvider) {
 
 		$locationProvider.hashPrefix('!');
-		$disqusProvider.setShortname("penedorj");
 
 		$httpProvider.defaults.useXDomain = true;
 		delete $httpProvider.defaults.headers.common['X-Requested-With'];

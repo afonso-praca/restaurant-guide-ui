@@ -5,7 +5,8 @@ angular.module("controllers")
 		$scope.SharedData = SharedData;
 
 		self.startModule = function(){
-			$scope.restaurant = restaurant.data;
+			$scope.restaurant = restaurant.data.restaurant;
+			$scope.similars = restaurant.data.similars;
 		};
 
 		self.startModule();

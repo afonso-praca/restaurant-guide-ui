@@ -14,7 +14,7 @@ angular.module("services")
 				return $http({
 					method: 'GET',
 					url: self.endpoint + "/api/restaurants/",
-					cache: true
+					cache: false
 				})
 					.success(function(response) {
 						return response;
@@ -28,21 +28,6 @@ angular.module("services")
 				return $http({
 					method: 'GET',
 					url: self.endpoint + "/api/restaurants/" + _id + "/",
-					cache: true
-				})
-					.success(function(response) {
-						return response;
-					})
-					.error(function(data, status, headers) {
-						self.genericDataError(data, status, headers);
-					});
-			},
-
-			getDisqusCounter: function(urlArray){
-				return $http({
-					method: 'GET',
-					url: "https://disqus.com/api/3.0/threads/list",
-					params: { api_key: "mQXEUI6cVnMEMrTu7zt5S4ISfDgTffQ8KUi54F7Gk2siiAiJm6yLjLVN4feTrxKt", forum : "penedorj", limit: 100 },
 					cache: false
 				})
 					.success(function(response) {

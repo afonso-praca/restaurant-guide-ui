@@ -17,24 +17,43 @@
 				<h2 class="lead pull-left">{{ restaurant.name }}</h2>
 			</div>
 
+			<!-- EXPERTISE -->
 			<div class="clearfix">
 				<span class="label label-primary label-restaurant-detail pull-left">{{ restaurant.expertise }}</span>
 			</div>
 
-			<!-- DESCRIPTION -->
+			<!-- ADDRESS -->
 			<p class="restaurant-description">
 				<span class="glyphicon glyphicon-home"></span><span> {{ restaurant.address }} - {{ restaurant.neighborhood }}</span>
 			</p>
 
-			<!-- UTM -->
+			<!-- PH0NE -->
 			<p class="restaurant-phone">
 				<span class="glyphicon glyphicon-phone-alt"></span><span> (24) {{ restaurant.phone }}</span>
 			</p>
 
 		</div>
-
-		<div disqus="restaurant._id" class="fade-in"></div>
-
 	</div>
+</div>
 
+<!-- SIMILARES -->
+<div class="row" ng-if="similars.length != 0">
+	<div class="col-xs-12">
+		<hr/>
+		<h4><em>Outros restaurantes com a mesma especialidade</em></h4>
+	</div>
+	<div class="col-xs-6 col-sm-2" data-ng-repeat="restaurant in similars | limitTo : 6">
+		<a href="#!/restaurantes/{{restaurant._id}}">
+			<div class="home-item clearfix">
+				<img src="" data-ng-src="{{restaurant.image}}" alt="img" class="img-responsive img-item-home" imageonload/>
+				<div class="title-item-home">
+					<h4 data-ng-bind="restaurant.name">Nome do Restaurante</h4>
+				</div>
+				<div class="details-item-home">
+					<span class="label label-default" data-ng-if="restaurant.posts && restaurant.posts != 0"><span> {{ restaurant.posts }} </span><i class="glyphicon glyphicon-comment"></i></span>
+					<span class="label label-primary" data-ng-bind="restaurant.expertise">Especialidade</span>
+				</div>
+			</div>
+		</a>
+	</div>
 </div>

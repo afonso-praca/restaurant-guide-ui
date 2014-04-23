@@ -3,6 +3,9 @@ body {
   background-color: #FAFAFA;
   font-family: 'Source Sans Pro', sans-serif !important;
 }
+.app-title {
+  margin-left: 5px;
+}
 .login-fb {
   cursor: pointer;
 }
