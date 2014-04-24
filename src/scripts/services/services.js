@@ -36,6 +36,21 @@ angular.module("services")
 					.error(function(data, status, headers) {
 						self.genericDataError(data, status, headers);
 					});
+			},
+
+			addComment: function(comment){
+				return $http({
+					method: 'POST',
+					url: self.endpoint + "/api/restaurants/comments",
+					data: comment,
+					cache: false
+				})
+					.success(function(response) {
+						return response;
+					})
+					.error(function(data, status, headers) {
+						self.genericDataError(data, status, headers);
+					});
 			}
 		}
 	});
