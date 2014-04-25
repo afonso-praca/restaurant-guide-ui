@@ -35,8 +35,34 @@
 		</div>
 		<div class="card">
 			<br/>
-			<button class="btn" ng-click="addComent()">Comentar</button>
-			<br/><br/>
+			<form>
+				<button ng-if="!session.isLoggedIn" type="submit" ng-click="session.facebookLogin()" class="btn btn-default">Faça login para comentar</button>
+			</form>
+
+			<form ng-if="session.isLoggedIn">
+				<div class="form-group">
+					<label for="comment-title">Título do comentário</label>
+					<input type="text" ng-model="currentComment.title" class="form-control" id="comment-title" placeholder="Título do comentário">
+				</div>
+				<div class="form-group">
+					<label for="comment-body">Comentário</label>
+					<textarea ng-model="currentComment.body" class="form-control" rows="3" id="comment-body" placeholder="Adicione aqui seu comentário"></textarea>
+				</div>
+				<button type="submit" ng-click="addComent()" class="btn btn-default">Comentar</button>
+			</form>
+			<br/>
+		</div>
+
+		<!-- LISTA DE COMENTÁRIOS -->
+		<div class="card" ng-if="restaurant.comments.length > 0">
+			<br/>
+			<ul>
+				<li ng-repeat="comment in restaurant.comments">
+					<h5 class="text-muted">{{ comment.title }}</h5>
+					<p>{{ comment.body }}</p>
+				</li>
+			</ul>
+			<br/>
 		</div>
 	</div>
 </div>
