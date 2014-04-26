@@ -14,7 +14,7 @@ angular.module("services")
 				return $http({
 					method: 'GET',
 					url: self.endpoint + "/api/restaurants/",
-					cache: false
+					cache: true
 				})
 					.success(function(response) {
 						return response;

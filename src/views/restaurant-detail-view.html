@@ -63,7 +63,7 @@
 					</div>
 					<div class="col-sm-11">
 						<h5 class="text-muted">"{{ comment.title }}"</h5>
-						<div class="comment-author"><small>por <strong><em>{{ comment.user_name }}</em></strong></small></div>
+						<div class="comment-author"><small>por <em>{{ comment.user_name }}</em></small></div>
 						<p>{{ comment.body }}</p>
 					</div>
 				</div>
@@ -76,7 +76,7 @@
 <div class="row" ng-if="similars.length != 0">
 	<div class="col-xs-12">
 		<hr/>
-		<h5>Outros restaurantes em <em>{{ restaurant.expertise }}</em></h5>
+		<h5>Outros restaurantes em <em><strong>{{ restaurant.expertise }}</strong></em></h5>
 	</div>
 	<div class="col-xs-6 col-sm-2" data-ng-repeat="restaurant in similars | limitTo : 6">
 		<a href="#!/restaurantes/{{restaurant._id}}">
