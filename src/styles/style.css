@@ -9,6 +9,18 @@ body {
 .login-fb {
   cursor: pointer;
 }
+.img-comment {
+  margin-top: 10px;
+}
+.comment-row {
+  position: relative;
+}
+.comment-row h5 {
+  margin-bottom: 2px;
+}
+.comment-row .comment-author {
+  margin-bottom: 5px;
+}
 .img-fb {
   width: 30px;
   margin-top: -10px;

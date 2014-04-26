@@ -10,7 +10,9 @@ angular.module("controllers")
 			title: "",
 			body: "",
 			stars: 0,
-			user_id: 33,
+			user_id: null,
+			user_name: null,
+			user_image: null,
 			restaurant_id: $scope.restaurant._id
 		};
 
@@ -19,15 +21,21 @@ angular.module("controllers")
 		};
 
 		$scope.addComent = function(){
-			//alert("Essa funcionalidade estara disponivel em breve!");
+
+			// CONFIGURA O USUARIO ATUAL
+			$scope.currentComment.user_id = $rootScope.session.currentUser._id;
+			$scope.currentComment.user_name = $rootScope.session.currentUser.name;
+			$scope.currentComment.user_image = $rootScope.session.currentUser.user_image;
+
 			restaurantGuideService.addComment($scope.currentComment).then(
 				function(){
-					console.log("sucesso");
 					$scope.currentComment = {
 						title: "",
 						body: "",
 						stars: 0,
-						user_id: 33,
+						user_id: null,
+						user_name: null,
+						user_image: null,
 						restaurant_id: $scope.restaurant._id
 					};
 					SharedData.isLoading = true;

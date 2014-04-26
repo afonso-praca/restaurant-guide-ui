@@ -36,33 +36,38 @@
 		<div class="card">
 			<br/>
 			<form>
-				<button ng-if="!session.isLoggedIn" type="submit" ng-click="session.facebookLogin()" class="btn btn-default">Faça login para comentar</button>
+				<button ng-if="!session.isLoggedIn" type="submit" ng-click="session.facebookLogin()" class="btn btn-default">Faça login para avaliar</button>
 			</form>
 
 			<form ng-if="session.isLoggedIn">
 				<div class="form-group">
-					<label for="comment-title">Título do comentário</label>
+					<label for="comment-title">Título da avaliação</label>
 					<input type="text" ng-model="currentComment.title" class="form-control" id="comment-title" placeholder="Título do comentário">
 				</div>
 				<div class="form-group">
-					<label for="comment-body">Comentário</label>
+					<label for="comment-body">Avaliação</label>
 					<textarea ng-model="currentComment.body" class="form-control" rows="3" id="comment-body" placeholder="Adicione aqui seu comentário"></textarea>
 				</div>
-				<button type="submit" ng-click="addComent()" class="btn btn-default">Comentar</button>
+				<button type="submit" ng-click="addComent()" class="btn btn-default">Avaliar</button>
 			</form>
 			<br/>
 		</div>
 
 		<!-- LISTA DE COMENTÁRIOS -->
 		<div class="card" ng-if="restaurant.comments.length > 0">
-			<br/>
-			<ul>
-				<li ng-repeat="comment in restaurant.comments">
-					<h5 class="text-muted">{{ comment.title }}</h5>
-					<p>{{ comment.body }}</p>
-				</li>
-			</ul>
-			<br/>
+			<h5><strong>{{ restaurant.comments.length }} avaliações para {{ restaurant.name }}</strong></h5>
+			<div class="row">
+				<div class="comment-row" ng-repeat="comment in restaurant.comments">
+					<div class="col-sm-1">
+						<img class="img-circle img-comment" ng-src="{{ comment.user_image }}" alt="{{ comment.user_name }}"/>
+					</div>
+					<div class="col-sm-11">
+						<h5 class="text-muted">"{{ comment.title }}"</h5>
+						<div class="comment-author"><small>por <em>{{ comment.user_name }}</em></small></div>
+						<p>{{ comment.body }}</p>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
@@ -71,18 +76,14 @@
 <div class="row" ng-if="similars.length != 0">
 	<div class="col-xs-12">
 		<hr/>
-		<h4><em>Outros restaurantes com a mesma especialidade</em></h4>
+		<h5>Outros restaurantes em <em>{{ restaurant.expertise }}</em></h5>
 	</div>
 	<div class="col-xs-6 col-sm-2" data-ng-repeat="restaurant in similars | limitTo : 6">
 		<a href="#!/restaurantes/{{restaurant._id}}">
 			<div class="home-item clearfix">
-				<img src="" data-ng-src="{{restaurant.image}}" alt="img" class="img-responsive img-item-home" imageonload/>
+				<img src="" data-ng-src="{{ restaurant.image }}" alt="{{ restaurant.name }}" class="img-responsive img-item-home" imageonload/>
 				<div class="title-item-home">
 					<h4 data-ng-bind="restaurant.name">Nome do Restaurante</h4>
-				</div>
-				<div class="details-item-home">
-					<span class="label label-default" data-ng-if="restaurant.posts && restaurant.posts != 0"><span> {{ restaurant.posts }} </span><i class="glyphicon glyphicon-comment"></i></span>
-					<span class="label label-primary" data-ng-bind="restaurant.expertise">Especialidade</span>
 				</div>
 			</div>
 		</a>
