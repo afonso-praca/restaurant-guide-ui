@@ -17,7 +17,7 @@
 					<h4 data-ng-bind="restaurant.name">Nome do Restaurante</h4>
 				</div>
 				<div class="details-item-home">
-					<span class="label label-default" data-ng-if="restaurant.posts && restaurant.posts != 0"><span> {{ restaurant.posts }} </span><i class="glyphicon glyphicon-comment"></i></span>
+					<span class="label label-success" data-ng-if="restaurant.comments.length > 0"><span> {{ restaurant.comments.length }} </span><i class="glyphicon glyphicon-comment"></i></span>
 					<span class="label label-primary" data-ng-bind="restaurant.expertise">Especialidade</span>
 				</div>
 			</div>
