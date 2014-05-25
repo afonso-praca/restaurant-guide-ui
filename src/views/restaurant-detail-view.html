@@ -78,7 +78,7 @@
 		<hr/>
 		<h5>Outros restaurantes em <em><strong>{{ restaurant.expertise }}</strong></em></h5>
 	</div>
-	<div class="col-xs-6 col-sm-2" data-ng-repeat="restaurant in similars | limitTo : 6">
+	<div class="col-xs-6 col-sm-2" data-ng-repeat="restaurant in similars | orderByRelevance | limitTo : 6">
 		<a href="#!/restaurantes/{{restaurant._id}}">
 			<div class="home-item clearfix">
 				<img src="" data-ng-src="{{ restaurant.image }}" alt="{{ restaurant.name }}" class="img-responsive img-item-home" imageonload/>
